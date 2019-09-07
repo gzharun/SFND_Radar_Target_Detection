@@ -185,8 +185,8 @@ noise_level = zeros(Nr/2,Nd);
 T = 2*(2*(Gd+Td) + 1)*Tr + 2*(2*Gr + 1)*Td;
 for i = Gr+Tr+1:(Nr/2-(Gr+Tr+1))
     for j = Gd+Td+1:(Nd-(Gd+Td+1))
-        Sw = sum(10.^(RDM(i-Gr-Tr:i+Gr+Tr, j-Gd-Td:j+Gd+Td)/10), 'all');
-        Sguarded = sum(10.^(RDM(i-Gr:i+Gr, j-Gd:j+Gd)/10), 'all');
+        Sw = sum(10.^(RDM(i-Gr-Tr:i+Gr+Tr, j-Gd-Td:j+Gd+Td)/10), [1,2]);
+        Sguarded = sum(10.^(RDM(i-Gr:i+Gr, j-Gd:j+Gd)/10), [1,2]);
         
         S = (Sw - Sguarded) / T;
         
